@@ -13,6 +13,7 @@ const TodoAppContextProvideder = ({children}) => {
 
     const [input, setInput] = useState('');
     const [details, setDetails ] = useState('')
+    const [itemColor, setItemColor] = useState('')
     const [isShowform, setIsShowform] = useState(false)
 
     // Add a new todo
@@ -23,7 +24,8 @@ const TodoAppContextProvideder = ({children}) => {
         
         const newTodo = {
             name: input,
-            detail :details
+            detail :details,
+            color:itemColor
         };
         const updatedTodoData = [
             ...todoData,
@@ -31,7 +33,7 @@ const TodoAppContextProvideder = ({children}) => {
         ];
         setTodoData(updatedTodoData);
         setInput(''); // Clear input field
-
+       
         setIsShowform(false)
     };
 
@@ -51,7 +53,7 @@ const TodoAppContextProvideder = ({children}) => {
                 input,
                 setInput,
                 addToTodoData,
-                deleteAll, isShowform, setIsShowform, details, setDetails 
+                deleteAll, isShowform, setIsShowform, details, setDetails, itemColor, setItemColor 
             }}>
             {children}
         </TodoContext.Provider>
