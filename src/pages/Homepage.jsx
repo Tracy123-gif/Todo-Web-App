@@ -12,7 +12,7 @@ const Homepage = () => {
 
 
   return (
-    <div className='w-full h-screen overflow-x-hidden bg-gray-900 text-white px-5 relative'>
+    <div className='w-full h-screen overflow-hidden bg-gray-900 text-white px-5 relative '>
       <Navbar />
       <TodoList />
       

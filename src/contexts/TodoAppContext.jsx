@@ -15,6 +15,7 @@ const TodoAppContextProvideder = ({children}) => {
     const [details, setDetails ] = useState('')
     const [itemColor, setItemColor] = useState('')
     const [isShowform, setIsShowform] = useState(false)
+    const [isConfirm, setIsConfirm] = useState(false)
 
     // Add a new todo
     const addToTodoData = (e) => {
@@ -39,7 +40,16 @@ const TodoAppContextProvideder = ({children}) => {
 
     const deleteAll = () => {
         setTodoData([])
+        setIsConfirm(false)
 
+    }
+    
+    const confirmDelete =()=>{
+        if (!isConfirm) {
+            setIsConfirm(true)
+        }else{
+            setIsConfirm(false)
+        }
     }
     // Save todos to localStorage whenever `todoData` changes
     useEffect(() => {
@@ -53,7 +63,7 @@ const TodoAppContextProvideder = ({children}) => {
                 input,
                 setInput,
                 addToTodoData,
-                deleteAll, isShowform, setIsShowform, details, setDetails, itemColor, setItemColor 
+                deleteAll, isShowform, setIsShowform, details, setDetails, itemColor, setItemColor, confirmDelete, isConfirm, setIsConfirm
             }}>
             {children}
         </TodoContext.Provider>

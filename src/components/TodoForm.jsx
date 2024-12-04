@@ -38,9 +38,17 @@ const TodoForm = () => {
                     value={input}
                     onChange={inputValue}
                     required="required"/>
-                    <textarea onChange={setDetailsFunc} value={details} className='p-4 rounded-md mt-10 text-white bg-gray-950' placeholder='Add some description' name="Discription" id="" cols={10} rows={5}></textarea>
+                    <textarea onChange={setDetailsFunc} value={details} className='p-4 rounded-md mt-10 text-white bg-gray-950' placeholder='Add some description' name="Discription" id="" cols={10} rows={5}  required="required"></textarea>
+                    
                     <div className='flex items-center justify-center mt-5 bg-slate-500 rounded-lg py-2 mb-6'>
-                    <label className='block m-auto' htmlFor="color">Pick a color <input value={itemColor} onChange={setColorFunc} className='w-8 h-8 rounded-full p-2' type="color" name="color" id="" /></label>
+                    <label className='block m-auto' htmlFor="color">Pick a color
+                    <input type="color" list="colors" value={itemColor} onChange={setColorFunc} className='w-8 h-8 rounded-full bg-black' name="color"  required="required"  />
+                        <datalist id="colors " className='w-40 h-40'>
+                        <option value="#ff0000"></option> 
+                        <option value="#00ff00"></option> 
+                        <option value="#0000ff"></option> 
+                        </datalist>
+                        </label>
                     </div>
                 <button
                     className='absolute bottom-2 left-2 bg-gray-700 text-white  px-4 py-2 rounded-lg'
